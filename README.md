@@ -16,8 +16,31 @@ func totalWithTax() {
 }
 ```
 
-Then, modify the function you implemented to have a return type of `Int`, and use an external name that looks more readable. Function calls should look something like "total cost of the item after tax"
+```
+let itemCost = 45.0
+let nyTax = 0.08775
 
+func totalWithTax(cost: Double) -> Double {
+let tax = ceil(nyTax) - nyTax
+let price = itemCost * tax
+return price
+}
+totalWithTax(cost: itemCost)
+```
+
+Then, modify the function you implemented to have a return type of `Int`, and use an external name that looks more readable. Function calls should look something like "total cost of the item after tax"
+```
+let itemCost = 45.0
+let nyTax = 0.08775
+
+func totalWithTax(cost: Double) -> String {
+let tax = ceil(nyTax) - nyTax
+let price = itemCost * tax
+let readable = "This is your total: $\(Int((ceil(price)))) tax included "
+return readable
+}
+print(totalWithTax(cost: itemCost))
+```
 ## Question 2
 
 Convert the the following if/else statement below into function with a `String` return type.
@@ -33,6 +56,21 @@ if todaysTemperature <= 40 {
     print("Weather is moderate.")
 }
 ```
+```
+let todaysTemperature = 72
+
+func howIsItOutside(temp: Int) -> Int {
+if temp <= 40 {
+print("It's cold out.")
+} else if temp >= 85 {
+print("It's really warm.")
+} else {
+print("Weather is moderate.")
+}
+return temp
+}
+howIsItOutside(temp: todaysTemperature)
+```
 
 
 ## Question 3
@@ -46,6 +84,20 @@ Example:
 Input: `min2(a:1, b:2)`
 
 Output: `1`
+```
+var num1 = 20
+var num2 = 5
+
+func min2(a: Int, b: Int) -> Int{
+if a < b{
+return a
+}
+else{
+return b
+}
+}
+print(min2(a: num1, b: num2))
+```
 
 
 ## Question 4
@@ -59,12 +111,29 @@ Example:
 Input: `lastDigit(12345)`
 
 Output: `5`
+```
+var input = 12345
+func lastDigit(_ number: Int) -> Int{
+let digit = number % 10
+
+return digit
+}
+lastDigit(12345)
+```
 
 
 ## Question 5
 
 Write a function that takes in any two positive integers and return the sum.
+```
+func Digit(x: UInt, y: UInt) -> Int{
+let sum = x + y
 
+return Int(sum)
+}
+print(Digit(x: 123,y: 45))
+
+```
 
 ## Question 6
 
@@ -79,12 +148,66 @@ Write a function takes in any number grade and returns a corresponding letter gr
 | 65 - 69 | D |
 | Below 65 | F |
 
+```
+func classGrade(grade: Int) -> String{
+switch grade{
+case 100:
+print("A+")
+break
+case 90...99:
+print("A")
+break
+case 80...89:
+print("B")
+break
+case 70...70:
+print("C")
+break
+case 65...69:
+print("D")
+break
+default:
+print("F")
+}
+
+return ""
+}
+print("Your grade for this class: \(classGrade(grade: 60))")
+
+```
+
 
 ## Question 7
 
 Make a calculator function that takes in three parameters (two numbers and one operator) and returns the answer of the operation.
 
 Operator parameter: (+, -, x, /)
+
+```
+func calculator(num1: Int, num2: Int, mathOperator: String  ) -> Int{
+var answer = 0
+switch mathOperator {
+case "+":
+answer = num1 + num2
+break
+case "-":
+answer = num1 - num2
+break
+case "*":
+answer = num2 * num1
+break
+case "/":
+answer = num1 / num2
+break
+default:
+print("Not a math operator")
+}
+
+return answer
+}
+
+print("The answer is: \(calculator(num1: 2, num2: 2, mathOperator: "/"))")
+```
 
 
 ## Question 8
@@ -99,6 +222,20 @@ let tipPercentage = 0.15
 
 let myFinalCost = totalWithTip() //Fill in the arguments
 ```
+```
+let mealCost = 45
+let tipPercentage = 0.15
+
+//Write your code below
+func totalWithTip(cost: Int) -> Double{
+let tip = 1 + tipPercentage
+let total = Double(cost) * tip
+
+return total
+}
+let myFinalCost = totalWithTip(cost: mealCost)
+print("your total comes to $\(myFinalCost)")
+```
 
 Write a function that will print out **total cost after tip and tax.**
 
@@ -109,7 +246,21 @@ let taxPercentage = 0.09
 
 let myFinalCostWithTipAndTax = totalWithTipAndTax() //Fill in the arguments in function
 ```
+```
+let mealCost = 45
+let tipPercentage = 0.15
+let taxPercentage = 0.09
 
+func totalWithTipAndTax(cost: Int) -> Double{
+let tip = 1  + tipPercentage
+let tax = 1 + taxPercentage
+let total = Double(cost) * tip * tax
+
+return total
+}
+let myFinalCostWithTipAndTax = totalWithTipAndTax(cost: mealCost)
+print("your total comes to $\(ceil(myFinalCostWithTipAndTax))")
+```
 
 ## Question 9
 
@@ -119,7 +270,16 @@ Example:
 Input: `repeatPrint(message: "+", count: 10)`
 
 Output: `++++++++++`
+```
+func repeatPrint(message: String, count:Int) -> String{
+for _ in 0...count{
+print(message, terminator: "")
+}
 
+return ""
+}
+repeatPrint(message: "+", count: 10)
+```
 
 ## Question 10
 
@@ -132,6 +292,17 @@ Example:
 Input: `first(3)`
 
 Output: `[1, 2, 3]`
+```
+func first(_ n: Int) -> [Int]{
+var anArray = [Int]()
+for i in 0...n{
+anArray.append(i)
+}
+
+return anArray
+}
+print(first(3))
+```
 
 
 ## Question 11
@@ -142,7 +313,26 @@ If the number if a multiple of 3, print `"Fizz"` instead of the number
 If the number is a multiple of 5, print `"Buzz"` instead of the number
 If the number is a multiple of 3 AND 5, print `"FizzBuzz"` instead of the number
 Your function should take in one parameter: x (the number to count up to)
-
+```
+func copy(_ num: Int) -> String{
+if num % 5 == 0 && num % 3 == 0 {
+print("FizzBuzz")
+}
+else if num % 5 == 0{
+print("Buzz")
+}
+else if  num % 3 == 0{
+print("Fizz")
+}
+else{
+for i in 1...num{
+print(i)
+}
+}
+return ""
+}
+print(copy(196))
+```
 
 ## Question 12
 
@@ -153,6 +343,18 @@ Example:
 Input: `reverse([1, 2, 3])`
 
 Output: `[3, 2, 1]`
+```
+func reverse(numbers: [Int]) -> [Int]{
+var list = [Int]()
+for i in numbers{
+list.append(i)
+}
+list.reverse()
+
+return list
+}
+print(reverse(numbers: [1,2,3,4]))
+```
 
 
 ## Question 13
@@ -163,6 +365,20 @@ Write a function that prints out the most frequently appearing Int in an array o
 ## Question 14
 
 Write a function that sums all the even indices of an array of Ints.
+```
+var nums = [1,2,3,4,5,6,7,8,9]
+func even(_ numbers: [Int]) -> Int{
+var sum = 0
+for i in numbers{
+if i % 2 == 0 {
+sum = sum + i
+}
+}
+
+return sum
+}
+print(even(nums))
+```
 
 
 ## Question 15
