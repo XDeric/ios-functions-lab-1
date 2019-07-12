@@ -872,7 +872,32 @@ print(dictToTuples(dictionary: baseballTeamsById))
 
 ## Question 32
 
-Write a function that checks if a String is a [Palindrome](https://en.wikipedia.org/wiki/Palindrome)
+Write a function that checks if a String is a [Palindrome](https://en.wikipedia.org/wiki/Palindrome)'
+```swift
+var incrementForPalindrome = 0
+var str = "racecar"
+
+
+func palindrome(string: String)-> String{
+var flip = (String(string.reversed()))
+var s = string.components(separatedBy: (" "))
+var f = flip.components(separatedBy: (" "))
+
+for i in s{
+for j in f{
+if i == j{
+incrementForPalindrome += 1
+}
+}
+}
+if incrementForPalindrome > 0{
+return "It is a Palindrome"
+}
+return "No it is not a Palindrome"
+}
+
+print(palindrome(string: str))
+```
 
 
 ## Question 33
