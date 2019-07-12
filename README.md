@@ -16,7 +16,7 @@ func totalWithTax() {
 }
 ```
 
-```
+```swift
 let itemCost = 45.0
 let nyTax = 0.08775
 
@@ -29,7 +29,7 @@ totalWithTax(cost: itemCost)
 ```
 
 Then, modify the function you implemented to have a return type of `Int`, and use an external name that looks more readable. Function calls should look something like "total cost of the item after tax"
-```
+```swift
 let itemCost = 45.0
 let nyTax = 0.08775
 
@@ -56,7 +56,7 @@ if todaysTemperature <= 40 {
     print("Weather is moderate.")
 }
 ```
-```
+```swift
 let todaysTemperature = 72
 
 func howIsItOutside(temp: Int) -> Int {
@@ -84,7 +84,7 @@ Example:
 Input: `min2(a:1, b:2)`
 
 Output: `1`
-```
+```swift
 var num1 = 20
 var num2 = 5
 
@@ -111,7 +111,7 @@ Example:
 Input: `lastDigit(12345)`
 
 Output: `5`
-```
+```swift
 var input = 12345
 func lastDigit(_ number: Int) -> Int{
 let digit = number % 10
@@ -125,7 +125,7 @@ lastDigit(12345)
 ## Question 5
 
 Write a function that takes in any two positive integers and return the sum.
-```
+```swift
 func Digit(x: UInt, y: UInt) -> Int{
 let sum = x + y
 
@@ -148,7 +148,7 @@ Write a function takes in any number grade and returns a corresponding letter gr
 | 65 - 69 | D |
 | Below 65 | F |
 
-```
+```swift
 func classGrade(grade: Int) -> String{
 switch grade{
 case 100:
@@ -183,7 +183,7 @@ Make a calculator function that takes in three parameters (two numbers and one o
 
 Operator parameter: (+, -, x, /)
 
-```
+```swift
 func calculator(num1: Int, num2: Int, mathOperator: String  ) -> Int{
 var answer = 0
 switch mathOperator {
@@ -222,7 +222,7 @@ let tipPercentage = 0.15
 
 let myFinalCost = totalWithTip() //Fill in the arguments
 ```
-```
+```swift
 let mealCost = 45
 let tipPercentage = 0.15
 
@@ -246,7 +246,7 @@ let taxPercentage = 0.09
 
 let myFinalCostWithTipAndTax = totalWithTipAndTax() //Fill in the arguments in function
 ```
-```
+```swift
 let mealCost = 45
 let tipPercentage = 0.15
 let taxPercentage = 0.09
@@ -270,7 +270,7 @@ Example:
 Input: `repeatPrint(message: "+", count: 10)`
 
 Output: `++++++++++`
-```
+```swift
 func repeatPrint(message: String, count:Int) -> String{
 for _ in 0...count{
 print(message, terminator: "")
@@ -292,7 +292,7 @@ Example:
 Input: `first(3)`
 
 Output: `[1, 2, 3]`
-```
+```swift
 func first(_ n: Int) -> [Int]{
 var anArray = [Int]()
 for i in 0...n{
@@ -313,7 +313,7 @@ If the number if a multiple of 3, print `"Fizz"` instead of the number
 If the number is a multiple of 5, print `"Buzz"` instead of the number
 If the number is a multiple of 3 AND 5, print `"FizzBuzz"` instead of the number
 Your function should take in one parameter: x (the number to count up to)
-```
+```swift
 func copy(_ num: Int) -> String{
 if num % 5 == 0 && num % 3 == 0 {
 print("FizzBuzz")
@@ -343,7 +343,7 @@ Example:
 Input: `reverse([1, 2, 3])`
 
 Output: `[3, 2, 1]`
-```
+```swift
 func reverse(numbers: [Int]) -> [Int]{
 var list = [Int]()
 for i in numbers{
@@ -360,7 +360,7 @@ print(reverse(numbers: [1,2,3,4]))
 ## Question 13
 
 Write a function that prints out the most frequently appearing Int in an array of Int.
-```
+```swift
 var nums = [1,2,3,4,5,6,7,8,9,2,3,4,5,6,9,9,9]
 var frequency: [Int:Int] = [:]
 
@@ -386,8 +386,7 @@ print("The most frequent number is: \(frequent(nums))")
 ## Question 14
 
 Write a function that sums all the even indices of an array of Ints.
-```
-swift
+```swift
 var nums = [1,2,3,4,5,6,7,8,9]
 func even(_ numbers: [Int]) -> Int{
 var sum = 0
@@ -411,7 +410,7 @@ Example:
 Input: `[1: "hi", 5: "bye:]`
 
 Output: `["hi": 1, "bye": 5]`
-```
+```swift
 var dictionary: [String:Int] = ["hi": 1, "bonjour":2, "konbanwa":3]
 var newDictionary: [Int:String] = [:]
 for (key,value) in dictionary{
@@ -431,8 +430,7 @@ Input: `["Person 1": 83, "Person 2": 74, "Person 3": 82]`
 
 Output: `"Person 3"`
 
-```
-swift
+```swift
 var testScore = ["Person 1": 83, "Person 2": 74, "Person 3": 82]
 var max = 0
 var second = 0
@@ -469,8 +467,7 @@ highestScore(testScore)
 ## Question 17
 
 Write a function that determines if a value is inside of array.
-```
-swift
+```swift
 
 var test = [1,2,3,4,5,6]
 
@@ -493,8 +490,7 @@ Using your new function, write code that prints out whether `dieRoll` is even or
 
 `let dieRoll = Int(arc4random_uniform(6) + 1)`
 
-```
-swift
+```swift
 let dieRoll = Int(arc4random_uniform(6) + 1)
 
 func checkDice(_ x:Int){
@@ -519,8 +515,7 @@ Using your function from the first step, use String interpolation to print a sen
 
 If you haven't already done so, write a function that takes in an Int and returns whether that number is even or odd. Use that function to print a sentence that states whether the largest Int in `myArray` is even or odd.
 
-```
-swift
+```swift
 let myArray = [3,5,1,3,532,1,4,91,20,30,92,143]
 
 func biggest(_ arr:[Int]){
