@@ -748,6 +748,20 @@ Example:
 Input: `doubleIt(arr: [1, 2, 3, 4])`
 
 Output: `[2, 4, 6, 8]`
+```swift
+var numArr = [1, 2, 3, 4]
+
+func doubleIt( listOfNum: [Int])-> [Int]{
+var empty = [Int]()
+
+for i in listOfNum{
+empty.append(i*2)
+}
+return empty
+}
+
+print(doubleIt(listOfNum: numArr))
+```
 
 
 Then write a function called `multiplyBy` that takes an array of ints and an int n that will return the array with all the elements multiplied by n.
