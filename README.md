@@ -685,7 +685,35 @@ Example:
 Input: `timeDifference(firstHour: 12, firstMinute: 3, secondHour: 13, secondMinute: 10)`
 
 Output: `67`
+```swift
+var firstTime = ["Hour": 12, "Minute": 3]
+var secondTime = ["Hour": 13, "Minute": 10]
 
+func timeDifference(first: [String:Int],second: [String:Int] )-> Int{
+var sum1 = 0
+var sum2 = 0
+for (key,value) in first{
+if key == "Hour"{
+sum1 += value * 60
+}
+if key == "Minute"{
+sum1 += value
+}
+}
+for (key,value) in second{
+if key == "Hour"{
+sum2 += value * 60
+}
+if key == "Minute"{
+sum2 += value
+}
+}
+var sum = sum1 - sum2
+return sum
+}
+
+print("The diffrence in time in minutes: \(timeDifference(first: firstTime, second: secondTime))")
+```
 
 ## Question 26
 
@@ -695,7 +723,22 @@ Example:
 Input:  `filterOdd(arr: [1, 2, 3, 4, 5, 6, 7, 8])`
 
 Output: `[2, 4, 6, 8]`
+```swift
+var numArr = [1, 2, 3, 4, 5, 6, 7, 8]
 
+func filterOdd(arr: [Int])->[Int]{
+var newArr = [Int]()
+
+for i in arr{
+if i % 2 == 0{
+newArr.append(i)
+}
+}
+return newArr
+}
+
+print(filterOdd(arr: numArr))
+```
 
 ## Question 27
 
