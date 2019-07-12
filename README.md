@@ -804,6 +804,20 @@ Example:
 Input:  `countBools(arr: [true, true, false, true, false, true])`
 
 Output: `[false: 2, true: 4]`
+```swift
+var boolArr = [true, true, false, true, false, true]
+
+func countBool( listOfBool: [Bool])-> [Bool:Int]{
+var empty = [Bool:Int]()
+
+for occurences in listOfBool{
+empty[occurences] = (empty[occurences] ?? 0) + 1
+}
+return empty
+}
+
+print(countBool(listOfBool: boolArr))
+```
 
 
 ## Question 30
@@ -814,7 +828,20 @@ Example:
 Input:  `countCharacters(str: "Hello, World!")`
 
 Output: `["H": 1, "r": 1, "!": 1, "e": 1, "o": 2, "l": 3, ",": 1, " ": 1, "W": 1, "d": 1]`
+```swift
+var stringArr = "Hello, World!"
 
+func countCharacters( char: String)-> [Character:Int]{
+var empty = [Character:Int]()
+
+for occurences in char{
+empty[occurences] = (empty[occurences] ?? 0) + 1
+}
+return empty
+}
+
+print(countCharacters(char: stringArr))
+```
 
 ## Question 31
 
@@ -826,7 +853,22 @@ Example:
 Input:  `dictToTuples(dict: baseballTeamsById)`
 
 Output: `[(.0 1003, .1 "Rays"), (.0 1001, .1 "Mets"), (.0 1004, .1 "Marlins"), (.0 1002, .1 "Yankees")]`
+```swift
+let baseballTeamsById = [1001:"Mets", 1002:"Yankees", 1003:"Rays", 1004:"Marlins"]
 
+func dictToTuples( dictionary: [Int:String])-> [(Int,String)]{
+var empty = [(Int,String)]()
+var tuple: (Int,String)
+
+for (key,value) in dictionary{
+tuple = (key,value)
+empty.append(tuple)
+}
+return empty
+}
+
+print(dictToTuples(dictionary: baseballTeamsById))
+```
 
 ## Question 32
 
