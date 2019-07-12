@@ -903,11 +903,58 @@ print(palindrome(string: str))
 ## Question 33
 
 Write a function that checks if a String is a [pangram](https://en.wikipedia.org/wiki/Pangram)
+```swift
+var pangram = "The quick brown fox jumps over the lazy dog"
+var testForPangram = "abcdefghijklmnopqrstuvwxyz"
+var stuff = Set<Character>()
+//print(testForPangram.count)
+
+func pangramCheck(string: String){
+var empty = string
+empty = empty.replacingOccurrences(of: " ", with: "").lowercased()
+for i in empty{
+stuff.insert(i)
+}
+if testForPangram.count == stuff.count{
+print("The string is a Pangram ")
+}
+else{
+print("The string is not a pangram")
+}
+}
+
+pangramCheck(string: pangram)
+```
 
 
 ## Question 34
 
 Write your own `min()` and `max()` functions for an Array of Ints
+```swift
+var numArr = [1,2,3,4,5,6,7,9]
+
+func minNumber(numbers: [Int])-> Int{
+var small = 99999
+for i in numbers{
+if i < small{
+small = i
+}
+}
+return small
+}
+func maxNumber(numbers: [Int])->Int{
+var big = 0
+for i in numbers{
+if i > big{
+big = i
+}
+}
+return big
+}
+
+print(maxNumber(numbers: numArr))
+print(minNumber(numbers: numArr))
+```
 
 
 ## Question 35
