@@ -960,11 +960,53 @@ print(minNumber(numbers: numArr))
 ## Question 35
 
 Given two arrays of Ints, write a function that tells you all the values they have in common.
+```swift
+var arr1 = [1,2,3,4,5,7,8,9,10]
+var arr2 = [1,2,12,13,14,10]
+
+func same(list1: [Int], list2: [Int])->String{
+var arr3 = [Int]()
+for i in list1{
+for j in list2{
+if i == j {
+arr3.append(i)
+}
+}
+}
+
+
+return "These numbers \(arr3) are the same from both arrays"
+}
+print(same(list1: arr1, list2: arr2))
+```
 
 
 ## Question 36
 
 Find the most-frequently appearing Array of Ints in an Array of Arrays of Ints.
+```swift
+var arr1 = [[1,2,3],[4,5,7],[8,9,10],[1,2,3]]
+
+func arrOfArr(theMatrix: [[Int]])->String{
+var empty = [[Int]:Int]()
+var max = 0
+var bigArr = [Int]()
+
+for occurences in arr1{
+empty[occurences] = (empty[occurences] ?? 0) + 1
+}
+
+for (key,value) in empty{
+if value > max{
+max = value
+bigArr = key
+}
+}
+
+return "This array \(bigArr) occurs \(max) times"
+}
+print(arrOfArr(theMatrix: arr1))
+```
 
 
 ## Question 37
