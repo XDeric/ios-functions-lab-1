@@ -770,6 +770,20 @@ Example:
 Input:  `multiplyIt(arr: [1, 2, 3, 4], n: 4)`
 
 Output:  `[4, 8, 12, 16]`
+```swift
+var numArr = [1, 2, 3, 4]
+
+func multiplyBy( listOfNum: [Int], n: Int)-> [Int]{
+var empty = [Int]()
+
+for i in listOfNum{
+empty.append(i*n)
+}
+return empty
+}
+
+print(multiplyBy(listOfNum: numArr, n: 4))
+```
 
 
 ## Question 28
