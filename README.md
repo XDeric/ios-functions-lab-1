@@ -519,6 +519,24 @@ Using your function from the first step, use String interpolation to print a sen
 
 If you haven't already done so, write a function that takes in an Int and returns whether that number is even or odd. Use that function to print a sentence that states whether the largest Int in `myArray` is even or odd.
 
+```
+swift
+let myArray = [3,5,1,3,532,1,4,91,20,30,92,143]
+
+func biggest(_ arr:[Int]){
+var newArr = arr.sorted()
+var big = newArr[newArr.endIndex - 1]
+if big % 2 == 0{
+print("The largest number in the array \(big) is even")
+}
+else{
+print("The largest number in the array \(big) is odd")
+}
+}
+
+print(biggest(myArray))
+```
+
 
 ## Question 20
 
