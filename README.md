@@ -541,7 +541,20 @@ Using your function, print how many characters are in myString:
 
 `let myString = "Swift is a new programming language for iOS, OS X, watchOS, and tvOS apps that builds on the best of C and Objective-C, without the constraints of C compatibility."`
 
+```swift
+let myString = "Swift is a new programming language for iOS, OS X, watchOS, and tvOS apps that builds on the best of C and Objective-C, without the constraints of C compatibility."
+var newString = myString.replacingOccurrences(of: " ", with: "")
 
+func stringCounter(_ string: String)-> Int{
+var counter = 0
+for _ in string{
+counter += 1
+}
+return counter
+}
+
+print("Your string contains \(stringCounter(newString)) characters")
+```
 ## Question 21
 
 Write a function that counts how many characters in a String match a specific character.  (e.g: count how many "a"s are in a String, or count how many ","s are in a String.
@@ -552,8 +565,26 @@ Input:
 let testString = "This is a test string for your code"
 let targetCharacter: Character = "i"
 ```
-
 Sample output: `3`
+
+
+```swift
+let testString = "This is a test string for your code"
+let targetCharacter: Character = "i"
+
+func charCounter(message:String, letter:Character)->String{
+var counter = 0
+for i in message{
+if i == letter{
+counter += 1
+}
+}
+return "This letter: \(letter) is in your string this many times: \(counter)"
+}
+
+print(charCounter(message: testString, letter: targetCharacter))
+```
+
 
 
 ## Question 22
@@ -569,6 +600,24 @@ let targetCharacters: [Character] = ["a","e","i","o","u"]
 
 Output: `13`
 
+```swift
+let inputString = "This one is a little more complicated"
+let targetCharacters: [Character] = ["a","e","i","o","u"]
+
+func vowelCounter(message: String, lettersToCheck: [Character])->Int{
+var counter = 0
+for i in message{
+if lettersToCheck.contains(i){
+counter += 1
+}
+}
+return counter
+}
+
+print("There are this many \(vowelCounter(message: inputString, lettersToCheck: targetCharacters)) vowels")
+
+```
+
 
 ## Question 23
 
@@ -580,6 +629,26 @@ Input: `let inputArray2 = [3,1,4,1,3,2,6,1,9]`
 Output: `4`
 
 //Explanation: 2, 4, 6, 9 are unique in the array. Every other number is not unique.
+```swift
+let inputArray2 = [3,1,4,1,3,2,6,1,9]
+var stuff: [Int:Int] = [:]
+
+
+func unique(arr: [Int])-> Int{
+var counter = 0
+for occurences in arr{
+stuff[occurences] = (stuff[occurences] ?? 0) + 1
+}
+for (key,value) in stuff{
+if value == 1{
+counter += 1
+}
+}
+return counter
+}
+
+print("There are \(unique(arr: inputArray2)) unique numbers")
+```
 
 
 ## Question 24
@@ -590,6 +659,23 @@ Example:
 Input: `let binaryArray = [1,0,1,1,1,0,1]`
 
 Output: `93`
+```swift
+let binaryArray = [1,0,1,1,1,0,1]
+var decimal = Decimal()
+var index = 0
+
+func binaryToDecimal(binaryNumber:[Int])-> Decimal{
+let flip = binaryArray.reversed()
+for n in flip{
+decimal += Decimal(n) * pow(2,index)
+//print(index)
+index += 1
+}
+return decimal
+}
+
+print("Your binary \(binaryArray) to decimal is \(binaryToDecimal(binaryNumber: binaryArray))")
+```
 
 ## Question 25
 
