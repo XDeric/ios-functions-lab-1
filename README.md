@@ -1018,3 +1018,49 @@ Sample input:
 
 Sample output:
 `Uijt jt b uftu tusjoh. Bozuijoh dbo cf xsjuufo jo ifsf (fwfo Afcsbt boe afcsbt).`
+
+```swift
+var test = "This is a test string. Anything can be written in here (even Zebras and zebras)."
+
+func encryption(message: String)->String{
+var encrypted = String()
+var code = [
+"a" : "b",
+"b" : "c",
+"c" : "d",
+"d" : "e",
+"e" : "f",
+"f" : "g",
+"g" : "h",
+"h" : "i",
+"i" : "j",
+"j" : "k",
+"k" : "l",
+"l" : "m",
+"m" : "n",
+"n" : "o",
+"o" : "p",
+"p" : "q",
+"q" : "r",
+"r" : "s",
+"s" : "t",
+"t" : "u",
+"u" : "v",
+"v" : "w",
+"w" : "x",
+"x" : "y",
+"y" : "z",
+"z" : "a"
+]
+for i in message.lowercased(){
+for j in code.keys{
+if i == Character(j){
+encrypted.append(code[j]!)
+}
+}
+}
+return encrypted
+}
+
+print(encryption(message: test))
+```
