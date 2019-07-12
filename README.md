@@ -360,12 +360,34 @@ print(reverse(numbers: [1,2,3,4]))
 ## Question 13
 
 Write a function that prints out the most frequently appearing Int in an array of Int.
+```
+var nums = [1,2,3,4,5,6,7,8,9,2,3,4,5,6,9,9,9]
+var frequency: [Int:Int] = [:]
+
+func frequent(_ numbers: [Int]) -> Int{
+var max = 0
+var bigNum = 0
+for i in nums{
+frequency[i] = (frequency[i] ?? 0) + 1
+}
+for (key,value) in frequency{
+if value > max{
+max = value
+bigNum = key
+}
+}
+
+return bigNum
+}
+print("The most frequent number is: \(frequent(nums))")
+```
 
 
 ## Question 14
 
 Write a function that sums all the even indices of an array of Ints.
 ```
+swift
 var nums = [1,2,3,4,5,6,7,8,9]
 func even(_ numbers: [Int]) -> Int{
 var sum = 0
@@ -389,6 +411,15 @@ Example:
 Input: `[1: "hi", 5: "bye:]`
 
 Output: `["hi": 1, "bye": 5]`
+```
+var dictionary: [String:Int] = ["hi": 1, "bonjour":2, "konbanwa":3]
+var newDictionary: [Int:String] = [:]
+for (key,value) in dictionary{
+newDictionary.updateValue(key, forKey: value)
+
+}
+print(newDictionary)
+```
 
 
 ## Question 16
@@ -400,10 +431,60 @@ Input: `["Person 1": 83, "Person 2": 74, "Person 3": 82]`
 
 Output: `"Person 3"`
 
+```
+swift
+var testScore = ["Person 1": 83, "Person 2": 74, "Person 3": 82]
+var max = 0
+var second = 0
+var frstString = ""
+var secString = ""
+var arr = [Int]()
+var word = [String]()
+
+func highestScore(_ score: [String:Int]){
+for (key,value) in score{
+arr.append(value)
+word.append(key)
+word = word.sorted()
+arr = arr.sorted()
+}
+for i in arr{
+if i > max{
+second = max
+max = i
+}
+}
+for j in word{
+if j > frstString{
+secString = frstString
+frstString = j
+}
+}
+
+print("Second place \(secString) score is  \(second)")
+}
+highestScore(testScore)
+```
+
 ## Question 17
 
 Write a function that determines if a value is inside of array.
+```
+swift
 
+var test = [1,2,3,4,5,6]
+
+func check(_ arr:[Int],_ x:Int ){
+if arr.contains(x){
+print("Yes it has \(x)")
+}
+else{
+print("No it does not contain \(x)")
+}
+}
+
+check(test, 10)
+```
 
 ## Question 18
 
@@ -411,6 +492,21 @@ Write a function takes an `Int` as input, and returns true if it is even, or fal
 Using your new function, write code that prints out whether `dieRoll` is even or odd:
 
 `let dieRoll = Int(arc4random_uniform(6) + 1)`
+
+```
+swift
+let dieRoll = Int(arc4random_uniform(6) + 1)
+
+func checkDice(_ x:Int){
+if x % 2 == 0{
+print("The dice roll \(x) is even")
+}
+else{
+print("No \(x) is odd")
+}
+}
+checkDice(dieRoll)
+```
 
 
 ## Question 19
